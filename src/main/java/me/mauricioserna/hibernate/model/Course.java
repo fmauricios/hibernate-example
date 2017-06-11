@@ -33,12 +33,11 @@ public class Course implements Serializable {
         super();
     }
 
-    public Course(String name, String themes, String project, Teacher teacher) {
+    public Course(String name, String themes, String project) {
         super();
         this.name = name;
         this.themes = themes;
         this.project = project;
-        this.teacher = teacher;
     }
 
     public Long getIdCourse() {
