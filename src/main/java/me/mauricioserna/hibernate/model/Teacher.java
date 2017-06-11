@@ -23,8 +23,12 @@ public class Teacher implements Serializable {
     @Column(name = "avatar")
     private String avatar;
 
+    @OneToMany(mappedBy = "teacher")
     private Set<Course> courses;
-    private Set<TeacherSocialMedia> teacherSocialMedia;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_teacher")
+    private Set<TeacherSocialMedia> teacherSocialMedias;
 
     public Teacher() {
         super();
@@ -68,11 +72,11 @@ public class Teacher implements Serializable {
         this.courses = courses;
     }
 
-    public Set<TeacherSocialMedia> getTeacherSocialMedia() {
-        return teacherSocialMedia;
+    public Set<TeacherSocialMedia> getTeacherSocialMedias() {
+        return teacherSocialMedias;
     }
 
-    public void setTeacherSocialMedia(Set<TeacherSocialMedia> teacherSocialMedia) {
-        this.teacherSocialMedia = teacherSocialMedia;
+    public void setTeacherSocialMedias(Set<TeacherSocialMedia> teacherSocialMedias) {
+        this.teacherSocialMedias = teacherSocialMedias;
     }
 }

@@ -16,12 +16,16 @@ public class TeacherSocialMedia implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTeacherSocialMedia;
 
-    private Teacher teacher;
-    private SocialMedia socialMedia;
-
     @Column(name = "nickname")
     private String nickname;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_teacher")
+    private Teacher teacher;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_social_media")
+    private SocialMedia socialMedia;
 
     public TeacherSocialMedia() {
         super();

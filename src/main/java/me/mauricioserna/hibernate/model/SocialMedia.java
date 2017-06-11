@@ -24,6 +24,8 @@ public class SocialMedia {
     @Column(name = "icon")
     private String icon;
 
+    @OneToMany
+    @JoinColumn(name = "id_social_media")
     private Set<TeacherSocialMedia> teacherSocialMedia;
 
     public SocialMedia() {

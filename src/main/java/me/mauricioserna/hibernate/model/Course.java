@@ -24,7 +24,9 @@ public class Course implements Serializable {
 
     @Column(name = "project")
     private String project;
-    
+
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_teacher")
     private Teacher teacher;
 
     public Course() {
