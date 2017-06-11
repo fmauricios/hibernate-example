@@ -1,6 +1,7 @@
 package me.mauricioserna.hibernate.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by mauricio on 11/06/17.
@@ -8,11 +9,22 @@ import javax.persistence.Entity;
 
 
 @Entity
+@Table(name = "social_media")
 public class SocialMedia {
 
+    @Id
+    @Column(name = "id_social_media")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSocialMedia;
+
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "icon")
     private String icon;
+
+    private Set<TeacherSocialMedia> teacherSocialMedia;
 
     public SocialMedia() {
         super();
@@ -45,5 +57,13 @@ public class SocialMedia {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public Set<TeacherSocialMedia> getTeacherSocialMedia() {
+        return teacherSocialMedia;
+    }
+
+    public void setTeacherSocialMedia(Set<TeacherSocialMedia> teacherSocialMedia) {
+        this.teacherSocialMedia = teacherSocialMedia;
     }
 }
